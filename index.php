@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<?php
+include_once "./api/db.php";
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0047)? -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -26,6 +29,7 @@
       </marquee>
     </div>
     <div id="mm">
+        <!-- 1.基礎切出去處理完，引入畫面 -->
       <?php
       $do = $_GET['do'] ?? 'main';
       $file = "./front/{$do}.php";
@@ -34,7 +38,6 @@
       } else {
         include "./front/main.php";
       }
-
 
       ?>
     </div>
