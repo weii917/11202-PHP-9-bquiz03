@@ -38,11 +38,11 @@
                     </div>
                     <div>
                         <input class="btn" type="button" value="往上" 
-                          date-id="<?=$po['id'];?>"
-                          data-sw="<?=($idx!=0)?$pos[$idx-1]['id']:$po['id'];?>">
+                          data-id="<?=$po['id'];?>"
+                          data-sw="<?=($idx!==0)?$pos[$idx-1]['id']:$po['id'];?>">
 
                         <input class="btn" type="button" value="往下" 
-                          date-id="<?=$po['id'];?>" 
+                          data-id="<?=$po['id'];?>" 
                           data-sw="<?=((count($pos)-1)!=$idx)?$pos[$idx+1]['id']:$po['id'];?>">
                     </div>
                     <div style="color:black">
