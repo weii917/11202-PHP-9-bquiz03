@@ -21,6 +21,7 @@
         <div class="ct" style="width:24.5%;margin:0 0.25%">預告片排序</div>
         <div class="ct" style="width:24.5%;margin:0 0.25%">操作</div>
     </div>
+    <!-- 建立預告片後台顯示出來的內容，以rank由小到大預設排序撈出資料庫的資料，因後台所有都要顯示所以不考慮是否顯示的問題，前台才需要，顯示預設是1所以會都打勾 -->
     <div style="width:100%;height:190px;overflow:auto">
         <?php
         $pos = $Poster->all(" order by rank");

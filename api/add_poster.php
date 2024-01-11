@@ -6,6 +6,7 @@ if(isset($_FILES['poster']['tmp_name'])){
     move_uploaded_file($_FILES['poster']['tmp_name'],"../img/{$_FILES['poster']['name']}");
     $_POST['img']=$_FILES['poster']['name'];
 }
+// 顯示預設為1
 // 都沒資料時一開始id=0，rank取最大的id+1=>0+1，排序從1開始
 // ani動畫1至3隨機
 $_POST['sh']=1;
