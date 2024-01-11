@@ -1,6 +1,6 @@
 <?php
 include_once "./api/db.php";
-
+// 如果此頁面的POST不是空的，存進session代表目前登入成功，否則存一個變數用來顯示帳密錯誤
 if (!empty($_POST)) {
   if ($_POST['acc'] == 'admin' && $_POST['pw'] == '1234') {
     $_SESSION['login'] = 1;
@@ -37,7 +37,7 @@ if (!empty($_POST)) {
       </marquee>
     </div>
     <div id="mm">
-
+      <!-- 如果session有登入存進來才顯示後台頁面否則顯示登入畫面 ，因題目沒說要登出所以不做登出功能，要重登就關閉整個瀏覽器-->
       <?php
       if (isset($_SESSION['login'])) {
       ?>
@@ -65,7 +65,9 @@ if (!empty($_POST)) {
       <?php
       } else {
       ?>
+      <!-- 直接在此做登入的畫面，或是開一個檔案做 -->
         <form action="?" method="post" style="width:35%;margin:20px auto;">
+        <!-- 如果存有錯誤的變數顯示變數的訊息 -->
           <h3 class="ct">管理者登入</h3>
           <?php
           if (isset($error)) {
