@@ -50,14 +50,14 @@ foreach($movies as $idx => $movie){
             </div>
         </div>
         <div>
-            <button class="show-btn" data-id="<?-$movie['id'];?>"><?=($movie['sh']==1)?'顯示':'隱藏';?></button>
+            <button class='show-btn' data-id="<?=$movie['id'];?>"><?=($movie['sh']==1)?'顯示':'隱蔵';?></button>
             <button class='sw-btn'  
                   data-id="<?=$movie['id'];?>" 
                   data-sw="<?=($idx!==0)?$movies[$idx-1]['id']:$movie['id'];?>">往上</button>
             <button class='sw-btn' 
                   data-id="<?=$movie['id'];?>" 
                   data-sw="<?=((count($movies)-1)!=$idx)?$movies[$idx+1]['id']:$movie['id'];?>">往下</button>
-                  <button class="edit-btn" data-id="<?=$movie['id'];?>">編輯電影</button>
+            <button class="edit-btn" data-id="<?=$movie['id'];?>">編輯電影</button>
             <button class="del-btn" data-id="<?=$movie['id'];?>">刪除電影</button>
         </div>
         <div>
@@ -65,25 +65,40 @@ foreach($movies as $idx => $movie){
         </div>
     </div>
 </div>
-
-
-
-
 <?php
 }
 ?>
 </div>
 <script>
-    $(".show-btn").on("click",function(){
-        
+$(".show-btn").on("click",function(){
+    let id=$(this).data('id');
+    $.post("./api/show.php",{id},()=>{
+        location.reload()
+        //$(this).text(($(this).text()=='顯示')?"隱藏":"顯示");
+/*         switch($(this).text()){
+            case "隱藏":
+                $(this).text("顯示")
+            break;
+            case "顯示":
+                $(this).text("隱藏")
+            break;
+        } */
     })
-    $(".sw-btn").on("click",function(){
-        
+})
+$(".sw-btn").on("click",function(){
+    let id=$(this).data('id');
+    let sw=$(this).data('sw');
+    let table='movie'
+    $.post("./api/sw.php",{id,sw,table},()=>{
+        location.reload()
     })
-    $(".edit-btn").on("click",function(){
-        
-    })
-    $(".del-btn").on("click",function(){
-        
-    })
+})
+$(".edit-btn").on("click",function(){
+
+})
+$(".del-btn").on("click",function(){
+
+})
+
+
 </script>
