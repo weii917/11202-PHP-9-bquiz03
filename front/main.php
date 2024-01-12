@@ -30,6 +30,8 @@
     <h1>院線片清單</h1>
     <div class="rb tab" style="width:95%;">
     <div class="movies">
+        <!-- 先定義出今天日期，前兩天日期 ，顯示分頁數及總分頁-->
+        <!-- where ondate大於等於前兩天及小於等於今天&&顯示&& 用rank排序，限制顯示的筆數 -->
     <?php
         $today=date("Y-m-d");
         $ondate=date("Y-m-d",strtotime("-2 days"));
