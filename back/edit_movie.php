@@ -1,3 +1,4 @@
+<!-- 複製add_movie.php做修改 -->
 <style>
     .form td:nth-child(1){
         text-align-last: justify;
@@ -5,6 +6,7 @@
     }
 </style>
 <h2 class="ct">編輯院線片</h2>
+<!-- 撈資料庫資料 -->
 <?php $movie=$Movie->find($_GET['id']);?>
 <form action="./api/edit_movie.php" method="post" enctype="multipart/form-data">
 <div style="display:flex;align-items:start">
@@ -33,6 +35,8 @@
             <tr>
                 <td class="ct">上映日期</td>
                 <td>
+                    <!-- 解構附值，將陣列對應存進變數 -->
+                    <!-- 用三元運算式判斷選擇到某值會selected，顯示該值 -->
                     <?php 
                         [$year,$month,$date]=explode("-",$movie['ondate']);
                     ?>
