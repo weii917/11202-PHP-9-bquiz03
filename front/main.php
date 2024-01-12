@@ -32,6 +32,8 @@
     <div class="movies">
         <!-- 先定義出今天日期，前兩天日期 ，顯示分頁數及總分頁-->
         <!-- where ondate大於等於前兩天及小於等於今天&&顯示&& 用rank排序，限制顯示的筆數 -->
+        <!-- now會抓到get目前的頁數，start算出這一頁從哪一索引開始 -->
+        <!-- limit取資料表start哪一筆要取div幾筆 -->
     <?php
         $today=date("Y-m-d");
         $ondate=date("Y-m-d",strtotime("-2 days"));
@@ -63,6 +65,7 @@
         }
     ?>
     </div>
+    <!-- for列出總共的頁數，標籤帶有的是那一頁的p -->
     <div class="ct">
         <?php
             if($now-1>0){
