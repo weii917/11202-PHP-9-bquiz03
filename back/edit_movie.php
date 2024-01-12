@@ -33,6 +33,7 @@
             <tr>
                 <td class="ct">上映日期</td>
                 <td>
+                    <!-- 解構附值，炸開後形成的陣列會相對應存進變數裡，新的方式 -->
                     <?php 
                         [$year,$month,$date]=explode("-",$movie['ondate']);
                     ?>
@@ -85,6 +86,7 @@
     </div>
 </div>
 <div class="ct">
+    <!-- 帶id才知道邊及哪一筆 -->
     <input type="hidden" name="id" value="<?=$movie['id'];?>">
     <input type="submit" value="編輯">
     <input type="reset" value="重置">

@@ -87,6 +87,7 @@
                     } */
         })
     })
+    // 要帶id與要交換的id及table到api處理程式，因sw與poster共用所以要自帶table來判斷是處理哪個部分
     $(".sw-btn").on("click", function() {
         let id = $(this).data('id');
         let sw = $(this).data('sw');
