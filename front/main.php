@@ -172,10 +172,12 @@
             right: 90 * p
         })
     })
+    // 點選按鈕得到索引，將索引的參數給function slide()，執行該海報輪播
     $(".btn").on("click",function(){
         let idx=$(this).index()
         slide(idx);
     })
+    // 移動到按鈕上會停止輪播
     $(".btns").hover(
         function() {
             clearInterval(timer)
