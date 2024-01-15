@@ -20,10 +20,16 @@
 </div>
 <script>
     getMovies();
-    
+    // 當選項改變會改變下一個選項的val
+
     $("#movie").on("change",function(){
     getDates($("#movie").val())
-    })
+})
+
+$("#date").on("change",function(){
+    getSessions($("#movie").val(),$("#date").val())
+})
+
 
     function getMovies(){
     $.get("./api/get_movies.php",(movies)=>{
