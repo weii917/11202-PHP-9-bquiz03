@@ -20,12 +20,15 @@
 </div>
 <script>
     getMovies();
+    
+    $("#movie").on("change",function(){
+    getDates($("#movie").val())
+    })
 
     function getMovies(){
     $.get("./api/get_movies.php",(movies)=>{
         $("#movie").html(movies);
-        let id=$("#movie").val();
-        getDates(id)
+        getDates($("#movie").val())
     })
 }
     function getDates(id){
