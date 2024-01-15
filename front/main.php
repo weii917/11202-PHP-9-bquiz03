@@ -141,6 +141,7 @@
                 });
                 break;
         }
+        //把next獨立出來做下一張，當大於等於總數歸零，從頭輪播 now替換成next有加1才能執行換下一張
         now = next;
     }
 
@@ -166,6 +167,14 @@
             right: 90 * p
         })
     })
+    $(".btns").hover(
+        function(){
+            clearInterval(timer)
+        },
+        function(){
+            timer=setInterval(()=>{slide()},3000)
+        }
+    )
 </script>
 
 <style>
