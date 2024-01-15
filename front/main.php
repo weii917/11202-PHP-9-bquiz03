@@ -118,12 +118,17 @@
         slide()
     }, 3000)
 
-    function slide() {
+    function slide(n) {
         let ani = $(".item").eq(now).data("ani");
-        let next = now + 1;
-        if (next >= total) {
-            next = 0;
+        if (typeof(n) == 'undefined') {
+            next = now + 1;
+            if (next >= total) {
+                next = 0;
+            }
+        } else {
+            next = n;
         }
+
         switch (ani) {
             case 1:
                 $(".item").eq(now).fadeOut(1000, function() {
@@ -167,12 +172,18 @@
             right: 90 * p
         })
     })
+    $(".btn").on("click",function(){
+        let idx=$(this).index()
+        slide(idx);
+    })
     $(".btns").hover(
-        function(){
+        function() {
             clearInterval(timer)
         },
-        function(){
-            timer=setInterval(()=>{slide()},3000)
+        function() {
+            timer = setInterval(() => {
+                slide()
+            }, 3000)
         }
     )
 </script>
