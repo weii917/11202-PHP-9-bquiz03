@@ -68,7 +68,7 @@
             $("#session").html(sessions);
         })
     }
-// 把選擇的電影id 日期 座位送到後端，(booking)傳回到畫面顯示，選擇的隱藏，顯示booking的畫面
+// 把選擇的電影id 日期 座位送到後端，(booking)傳回到畫面顯示，選擇電影的隱藏，顯示booking的畫面
     function booking(){
     let order={movie_id:$("#movie").val(),
                date:$("#date").val(),

@@ -39,7 +39,7 @@ foreach($ords as $ord){
     bottom:2px;
 }
 </style>
-
+<!-- 顯示座位區start -->
 <div id="room">
 <div class="seats">
     <?php
@@ -64,7 +64,8 @@ foreach($ords as $ord){
     }
     ?>
 </div>
-
+<!-- 顯示座位區end -->
+<!-- 顯示選擇電影的資訊start-->
 </div>
 <div id="info">
 <div>您選擇的電影是：<?=$movie['name'];?></div>
@@ -75,10 +76,13 @@ foreach($ords as $ord){
     <button onclick="checkout()">訂購</button>
 </div>
 </div>
+<!-- 顯示選擇電影的資訊end-->
+
 
 <script>
+// 當.chk有做改變的動作，會增加checked屬性，做檢查陣列要小於等於四張才能再把植存進陣列
+// 否則改變checked屬性為false，提醒視窗跳出
 let seats=new Array();
-
 $(".chk").on("change",function(){
     if($(this).prop('checked')){
         if(seats.length+1<=4){
@@ -93,7 +97,7 @@ $(".chk").on("change",function(){
     $("#tickets").text(seats.length)
 
 })  
-
+// 全部的訂購資訊，到後端送進資料庫，接著顯示在result結果畫面
 function checkout(){
     $.post("./api/checkout.php",{movie:'<?=$movie['name'];?>',
                                  date:'<?=$date;?>',
